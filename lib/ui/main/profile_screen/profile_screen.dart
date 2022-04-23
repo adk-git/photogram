@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:photogram/settings/appTheme.dart';
 import 'package:photogram/utils/utils.dart';
 import 'package:photogram/widgets/main_screen/message.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class ProfileScreen extends StatelessWidget {
+  const ProfileScreen({Key? key}) : super(key: key);
+  static List<String> images = [
+    "assets/images/girl/girl_1.png",
+    "assets/images/girl/girl_2.png",
+    "assets/images/girl/girl_3.png",
+    "assets/images/girl/girl_4.png",
+    "assets/images/girl/girl_5.png",
+    "assets/images/girl/girl_6.png",
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +29,7 @@ class HomeScreen extends StatelessWidget {
             child: Column(
               children: [
                 SizedBox(
-                  height: 64 * h,
+                  height: 32 * h,
                 ),
                 Image.asset(
                   "assets/images/umida.png",
@@ -49,6 +58,22 @@ class HomeScreen extends StatelessWidget {
                 SizedBox(height: 16 * h),
                 InkWell(
                     onTap: () {}, child: const MessageButton(name: "xabar")),
+                SizedBox(height: 32 * h),
+                Expanded(
+                  child: MasonryGridView.count(
+                    physics: const BouncingScrollPhysics(),
+                    itemCount: images.length,
+                    crossAxisSpacing: 8 * w,
+                    mainAxisSpacing: 8 * h,
+                    itemBuilder: (BuildContext context, index) {
+                      return Image.asset(images[index]);
+                    },
+                    crossAxisCount: 2,
+                  ),
+                ),
+                SizedBox(height: 16 * h),
+                const MessageButton(name: "ko'proq ko'rsatish"),
+                SizedBox(height: 16 * h),
               ],
             ),
           ),

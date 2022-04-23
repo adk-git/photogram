@@ -26,7 +26,7 @@ class TwoButtons extends StatelessWidget {
           ),
           child: InkWell(
             onTap: () {
-              Navigator.pushNamed(context, AppRoutes.register1);
+              Navigator.pushNamed(context, AppRoutes.main);
             },
             child: Center(
               child: Text(

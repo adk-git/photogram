@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:photogram/routes/app_routes.dart';
 import 'package:photogram/settings/appTheme.dart';
 import 'package:photogram/utils/utils.dart';
 import 'package:photogram/widgets/auth/blackButton.dart';
@@ -52,7 +53,9 @@ class LoginScreen extends StatelessWidget {
               ),
               SizedBox(height: 16 * h),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushNamed(context, AppRoutes.main);
+                },
                 child: const BlackButton(nameButton: "Kirish"),
               ),
               SizedBox(height: 16 * h),
